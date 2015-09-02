@@ -1,12 +1,10 @@
 $(function(){
-  buttonTest();
+  pageLoad();
 });
 
-function buttonTest(){
-  $("#start").on("click", function(){
-    console.log("hi");
-  });
+function pageLoad(){
+  $("#title").toggle();
+  $("#start").toggle();
+  $("#title").fadeIn(3000);
+  $("#start").fadeIn(5000);
 }
-
-// insert fade in
-// <div id="title">Travel Inspirations</div>

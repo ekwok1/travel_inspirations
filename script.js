@@ -4,32 +4,110 @@ $(function(){
   startApp();
   about();
   responseButtons();
+  restartButton();
+  showMe();
+  finished();
+  likeIt();
+  ehh();
+  finishedSession();
 });
 
-// $.ajax({
-//   type: "GET",
-//   url: "https://api.flickr.com/services/rest/?",
-//   data: {
-//     method: "flickr.photos.search",
-//     api_key: "571d32d4d12abeea7e521a6fd1f70669",
-//     format: "json",
-//     nojsoncallback: "1",
-//     safe_search: "1",
-//     tags: "scenic, landmark",
-//   },
-//   dataType: "json",
-//   success: function(r){
-//     var randomPhoto = _.sample(r.photos.photo);                           
-//       userId = randomPhoto.id;           
-//       secret = randomPhoto.secret;           
-//       server = randomPhoto.server;    
-//       console.log(r);        
-//       $('#test').append('<img id="test123" src="https://c1.staticflickr.com/1/'+server+'/'+userId+'_'+secret+'_b.jpg">');
-//   }
-// });
+var picturePage = function picturePage(){
+  $("#step2").fadeOut(1000);
+  $("#picturePage").fadeIn(2000);
+  var x = likedTag.length;
+
+  for (i=0; i<likedTag.length; i++) {
+    $("#picturePage").append("<div class=pSizing>foo</div>");
+  }
+};
+
+function finishedSession(){
+  $("#finishedSession").on("click", picturePage);
+}
+
+var nextPhoto = function nextPhoto(){
+  $("#travelImageDiv").fadeOut(1000);
+  $("#travelImageDiv").empty();
+  ajax();
+  $("#travelImageDiv").toggle().fadeIn(1000);
+};
+
+function ehh(){
+  $("#nextPhoto").on("click", nextPhoto);
+}
+
+var server;
+var userId;
+var secret;
+var randomTag;
+var likedServer = [];
+var likedUserId = [];
+var likedSecret = [];
+var likedTag = [];
+
+var storeAndNext = function storeAndNext(){
+  likedServer.push(server);
+  likedUserId.push(userId);
+  likedSecret.push(secret);
+  likedTag.push(randomTag);
+  $("#travelImageDiv").fadeOut(1000);
+  $("#travelImageDiv").empty();
+  ajax();
+  $("#travelImageDiv").toggle().fadeIn(1000);
+};
+
+function likeIt(){
+  $("#likeIt").on("click", storeAndNext);
+}
+
+function handlerIn2(){
+  $("#explanation3").fadeIn(500);
+}
+
+function handlerOut2(){
+  $("#explanation3").fadeOut(500);
+}
+
+function finished(){
+  $("#finishedSession").hover(handlerIn2, handlerOut2);
+}
+
+var ajax = function ajax(){
+  $("#showMeButton").fadeOut(1000);
+  $("#likeIt").fadeIn(2000);
+  $("#nextPhoto").fadeIn(2000);
+  $("#finishedSession").fadeIn(2000);
+  randomTag = _.sample(pickedContinents);
+  
+  $.ajax({
+  type: "GET",
+  url: "https://api.flickr.com/services/rest/?",
+  data: {
+    method: "flickr.photos.search",
+    api_key: "571d32d4d12abeea7e521a6fd1f70669",
+    format: "json",
+    nojsoncallback: "1",
+    safe_search: "1",
+    tags: randomTag,
+  },
+  dataType: "json",
+  success: function(r){
+    var randomPhoto = _.sample(r.photos.photo);                           
+      server = randomPhoto.server;
+      userId = randomPhoto.id;         
+      secret = randomPhoto.secret;
+      $('#travelImageDiv').append('<img id="travelImage" src="https://c1.staticflickr.com/1/'+server+'/'+userId+'_'+secret+'_b.jpg">');
+  }
+  });
+};
+
+function showMe(){
+  $("#showMeButton").on("click", ajax);
+}
 
 var places = {
-  "africa": ["egypt pyramid", "fish river canyon", "victoria falls", "valley of the kings", "okavango delta", "ngorongoro crater"],
+  "africa": ["Egypt Pyramid", "Fish River Canyon", "Victoria Falls", "Valley of the Kings", "Okavango Delta", "Ngorongoro Crater"],
   "antartica": ["a"],
   "asia": ["b"],
   "australia": ["c"],
@@ -44,11 +122,27 @@ var continents = ["ANTARTICA?", "ASIA?", "AUSTRALIA?", "EUROPE?", "NORTH AMERICA
 
 var counter = 0;
 
+function restartButton(){
+  $("#restartButton").on("click", function(){
+    location.reload();
+  });
+}
+
 var continentSwitcher = function continentSwitcher(){
   if (continents[counter] === undefined) {
     if ($(this)[0].id === "yes") {
       pickedContinents = pickedContinents.concat(places[$("#continent")[0].innerText.split("?")[0].toLowerCase()]);
     }
+    $("#step1").fadeOut(500);
+    $("#step1").promise().done(function(){
+      if (pickedContinents.length === 0) {
+        $("#oops").fadeIn(800);
+        $("#restartButton").fadeIn(2000);
+      } else {
+        $("#step2Title").fadeIn(2000);
+        $("#showMeButton").fadeIn(2000);
+      }
+    });
     return false;
   }
   $("#continent").fadeOut(500);
@@ -92,6 +186,17 @@ function hideEverything(){
   $("#question").toggle();
   $("#continent").toggle();
   $("#responses").toggle();
+
+  $("#step2Title").toggle();
+  $("#oops").toggle();
+  $("#restartButton").toggle();
+  $("#showMeButton").toggle();
+  $("#likeIt").toggle();
+  $("#nextPhoto").toggle();
+  $("#finishedSession").toggle();
+  $("#explanation3").toggle();
+
+  $("#picturePage").toggle();
 }
 
 function pageLoad(){

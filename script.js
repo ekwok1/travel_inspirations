@@ -18,7 +18,7 @@ var picturePage = function picturePage(){
   var x = likedTag.length;
 
   for (i=0; i<likedTag.length; i++) {
-    $("#pDiv").append("<span class=pSizing>foo</span>");
+    $("#pDiv").append('<img class="pSizing" src="https://c1.staticflickr.com/1/'+likedServer[i]+'/'+likedUserId[i]+'_'+likedSecret[i]+'_b.jpg">');
   }
 };
 

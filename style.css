@@ -13,8 +13,16 @@
   font-size: 250%;
 }
 
+#pDiv {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+}
+
 .pSizing {
   color: white;
+  max-height: 300px;
+  max-width: 300px;
 }
 
 /*step 2*/

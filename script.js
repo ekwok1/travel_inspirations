@@ -18,7 +18,7 @@ var picturePage = function picturePage(){
   var x = likedTag.length;
 
   for (i=0; i<likedTag.length; i++) {
-    $("#picturePage").append("<div class=pSizing>foo</div>");
+    $("#pDiv").append("<span class=pSizing>foo</span>");
   }
 };
 

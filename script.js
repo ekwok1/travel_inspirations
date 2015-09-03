@@ -3,6 +3,7 @@ $(function(){
   pageLoad();
   startApp();
   about();
+  responseButtons();
 });
 
 // $.ajax({
@@ -27,21 +28,47 @@ $(function(){
 //   }
 // });
 
+var places = {
+  "africa": ["egypt pyramid", "fish river canyon", "victoria falls", "valley of the kings", "okavango delta", "ngorongoro crater"],
+  "antartica": ["a"],
+  "asia": ["b"],
+  "australia": ["c"],
+  "europe": ["d"],
+  "north america": ["e"],
+  "south america": ["f"],
+};
 
-// function responseButtons(){
-//   $
-// }
+var pickedContinents = [];
 
-// function continentSwitcher(){
-//   while (true) {
+var continents = ["ANTARTICA?", "ASIA?", "AUSTRALIA?", "EUROPE?", "NORTH AMERICA?", "SOUTH AMERICA?"];
 
-//   }
-// }
+var counter = 0;
+
+var continentSwitcher = function continentSwitcher(){
+  if (continents[counter] === undefined) {
+    if ($(this)[0].id === "yes") {
+      pickedContinents = pickedContinents.concat(places[$("#continent")[0].innerText.split("?")[0].toLowerCase()]);
+    }
+    return false;
+  }
+  $("#continent").fadeOut(500);
+  if ($(this)[0].id === "yes") {
+    pickedContinents = pickedContinents.concat(places[$("#continent")[0].innerText.split("?")[0].toLowerCase()]);
+  }
+  $("#responses").off("click", "span", continentSwitcher);
+  $("#continent")[0].innerText = continents[counter];
+  $("#continent").toggle().fadeIn(800);
+  counter++;
+  $("#responses").on("click", "span", continentSwitcher);
+};
+
+function responseButtons(){
+  $("#responses").on("click", "span", continentSwitcher);
+}
 
 function handlerIn(){
   $("#explanation").fadeIn(500);
   $("#explanation2").fadeIn(500);
-
 }
 
 function handlerOut(){
@@ -77,8 +104,8 @@ var step1 = function step1(){
   $("#step1Background").fadeIn(1500);
   $("#step1Title").fadeIn(3000);
   $("#question").fadeIn(3000);
-  $("#continent").fadeIn(5000);
-  $("#responses").fadeIn(7000);
+  $("#continent").fadeIn(4000);
+  $("#responses").fadeIn(5000);
 };
 
 function startApp(){

@@ -3,6 +3,7 @@
 
 body {
   background-color: black;
+  width: 1000px;
 }
 
 img {
@@ -10,7 +11,7 @@ img {
   top: -1px;
   left: -1px;
   height: 680px;
-  width: 1277px;
+  width: 1290px;
   opacity: 0.35;
 }
 
@@ -23,11 +24,48 @@ img {
   font-size: 800%;
 }
 
-#start {
+#about, #start {
   position: relative;
   top: 200px;
-  left: 520px;
+  left: 390px;
   color: white;
   font-family: Ubuntu;
   font-size: 160%;
 }
+
+#about {
+  margin-right: 100px;
+}
+
+#explanation, #explanation2 {
+  position: relative;
+  top: 220px;
+  left: 300px;
+  width: 300px;
+  color: white;
+  font-family: Ubuntu;
+  font-size: 110%;
+}
+
+#explanation {
+  border-top: 5px solid dimgrey;
+  border-left: 5px solid dimgrey;
+  border-right: 5px solid dimgrey;
+  background-color: dimgrey;
+  opacity: 0.7;
+}
+
+#explanation2 {
+  border-bottom: 5px solid dimgrey;
+  border-left: 5px solid dimgrey;
+  border-right: 5px solid dimgrey;
+  background-color: dimgrey;
+  opacity: 0.7;
+}
+
+
+
+
+
+
+

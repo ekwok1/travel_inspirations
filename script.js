@@ -10,23 +10,23 @@ $(function(){
   likeIt();
   ehh();
   finishedSession();
+  findTag();
   displayTag();
 });
 
-var display = function display(e){
-  console.log(e.pageX);
-  console.log(e.pageY);
+var display = function display(){
+  $("#listTags").append('<div class="listTag">'+likedTag[$(".pSizing").index($(this))]+'</div>');
 };
 
 function displayTag(){
   $("#pDiv").on("click", ".pSizing", display);
 }
 
-// function findTag(){
-//   $("#pDiv").on("click", ".pSizing", function(){
-//     console.log(likedTag[$(".pSizing").index($(this))]);
-//   });
-// }
+function findTag(){
+  $("#pDiv").on("click", ".pSizing", function(){
+    console.log(likedTag[$(".pSizing").index($(this))]);
+  });
+}
 
 var picturePage = function picturePage(){
   $("#step2").fadeOut(1000);
@@ -123,7 +123,7 @@ function showMe(){
 }
 
 var places = {
-  "africa": ["Egypt Pyramid", "Fish River Canyon", "Victoria Falls", "Valley of the Kings", "Okavango Delta", "Ngorongoro Crater"],
+  "africa": ["Egypt Pyramid", "Fish River Canyon", "Victoria Falls", "Valley of the Kings", "Okavango Delta"],
   "antartica": ["a"],
   "asia": ["b"],
   "australia": ["c"],

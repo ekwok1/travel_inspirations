@@ -10,7 +10,15 @@ $(function(){
   likeIt();
   ehh();
   finishedSession();
+  findTag();
 });
+
+function findTag(){
+  $("#pDiv").on("click", ".pSizing", function(){
+    console.log(likedTag[$(".pSizing").index($(this))]);
+    return likedTag[$(".pSizing").index($(this))];
+  });
+}
 
 var picturePage = function picturePage(){
   $("#step2").fadeOut(1000);

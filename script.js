@@ -127,7 +127,7 @@ function showMe(){
 
 var places = {
   "africa": ["Great Sphinx", "Sahara Desert", "Nile River","Egypt Pyramid", "Fish River Canyon", "Victoria Falls", "Valley of the Kings", "Okavango Delta", "Serengeti", "Sossusvlei", "Masai Mara"],
-  "antartica": ["Iceburg Calving", "South Pole", "Paradise Harbor", "Neumayer Cshannel", "Lemaire Channel", "Deception Island", "Ross Ice Shelf", "Mount Erebus", "Polar Ice Cap", "Emperor Penguins"],
+  "antartica": ["Iceburg Calving", "South Pole", "Paradise Harbor", "Neumayer Channel", "Lemaire Channel", "Deception Island", "Ross Ice Shelf", "Mount Erebus", "Polar Ice Cap", "Emperor Penguins"],
   "asia": ["Ha Long Bay", "Taal Volcano", "Puerto Princesa Underground River", "Zhangye Danxia Landform", "Jiuzhaigou Valley", "Pangong Tso Lake", "Shilin Stone Forest", "Mt. Sanqing", "Arashiyama Bamboo Forest", "Great Wall", "St Basil's Cathedral", "MtEverest", "Taj Mahal", "Furano", "Hong Kong Peak", "Qutub Minar", "Petra", "Azadi Tower", "Forbidden City", "Great Buddha", "Sultan Ahmed Mosque"],
   "australia": ["Shark Bay", "Bondi Beach", "Port Arthur", "Heart Reef", "Uluru", "Sydney Opera House", "Great Barrier Reef", "Harbor Bridge"],
   "europe": ["Tower of London", "La Sagrada Familia", "Schonbrunn Palace", "Neuschwanstein Castle", "Mont-St-Michel", "Duomo Italy", "Alhambra Spain", "Acropolis Athens", "Big Ben", "Eiffel Tower", "Roman Colosseum", "Grand Canal", "Leaning Tower of Pisa"],

@@ -10,9 +10,18 @@ $(function(){
   likeIt();
   ehh();
   finishedSession();
-  findTag();
   displayTag();
+  restartButton2();
 });
+
+function restartButton2(){
+  $("#restartButton2").on("click", function(){
+    $("#picturePage").fadeOut(1000);
+    $("#picturePage").promise().done(function(){
+      location.reload();
+    });
+  });
+}
 
 var display = function display(){
   $("#listTags").append('<div class="listTag">'+likedTag[$(".pSizing").index($(this))]+'</div>');
@@ -20,12 +29,6 @@ var display = function display(){
 
 function displayTag(){
   $("#pDiv").on("click", ".pSizing", display);
-}
-
-function findTag(){
-  $("#pDiv").on("click", ".pSizing", function(){
-    console.log(likedTag[$(".pSizing").index($(this))]);
-  });
 }
 
 var picturePage = function picturePage(){
@@ -235,11 +238,3 @@ function startApp(){
     $("#frontPage").promise().done(step1);
   });
 }
-
-
-
-
-
-
-
-

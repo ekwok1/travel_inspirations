@@ -8,7 +8,7 @@
 .listTag {
   color: white;
   font-family: Oswald;
-  font-size: 150%;
+  font-size: 180%;
 }
 
 #listTags {
@@ -37,6 +37,11 @@
   color: white;
   max-height: 300px;
   max-width: 300px;
+}
+
+#restartButton2 {
+  margin-left: 350px;
+  font-size: 70%;
 }
 
 /*step 2*/

@@ -10,15 +10,23 @@ $(function(){
   likeIt();
   ehh();
   finishedSession();
-  findTag();
+  displayTag();
 });
 
-function findTag(){
-  $("#pDiv").on("click", ".pSizing", function(){
-    console.log(likedTag[$(".pSizing").index($(this))]);
-    return likedTag[$(".pSizing").index($(this))];
-  });
+var display = function display(e){
+  console.log(e.pageX);
+  console.log(e.pageY);
+};
+
+function displayTag(){
+  $("#pDiv").on("click", ".pSizing", display);
 }
+
+// function findTag(){
+//   $("#pDiv").on("click", ".pSizing", function(){
+//     console.log(likedTag[$(".pSizing").index($(this))]);
+//   });
+// }
 
 var picturePage = function picturePage(){
   $("#step2").fadeOut(1000);
